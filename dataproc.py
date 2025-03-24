@@ -6,13 +6,10 @@ from airflow.providers.google.cloud.operators.dataproc import DataprocSubmitJobO
 from airflow.providers.google.cloud.operators.dataproc import DataprocDeleteClusterOperator
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
 
-
-
 CLUSTER_NAME = 'dataproc-airflow-cluster'
 REGION='us-central1' # region
 PROJECT_ID='poised-defender-452519-u0' #project name
 PYSPARK_URI='gs://mybucket8090/example3/code/main_emr_gcp_git.py' # spark job location in cloud storage
-
 
 CLUSTER_CONFIG = {
     "master_config": {
@@ -26,7 +23,6 @@ CLUSTER_CONFIG = {
         "disk_config": {"boot_disk_type": "pd-standard", "boot_disk_size_gb": 500},
     }
 }
-
 
 PYSPARK_JOB = {
     "reference": {"project_id": PROJECT_ID},
